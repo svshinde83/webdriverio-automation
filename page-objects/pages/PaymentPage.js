@@ -30,9 +30,9 @@ class PaymentPage extends Base {
     }
 
     fillForm(amount, date, desc) {
-        this.amountInput.setValue(amount)
-        this.dateInput.setValue(date)
-        this.descriptionInput.setValue(desc)
+        this.amountInput.setValue(amount);
+        this.dateInput.setValue(date);
+        this.descriptionInput.setValue(desc);
     }
 
     submitForm() {

@@ -1,6 +1,7 @@
 import Base from '../Base'
 
 class InsideNavbar extends Base {
+
     get accountActivityTab() {
         return $('#account_activity_tab')
     }
@@ -18,22 +19,22 @@ class InsideNavbar extends Base {
     }
 
     clickAccountActivityTab() {
-        this.accountActivityTab.waitForExist()
+        this.accountActivityTab.waitForExist();
         this.accountActivityTab.click()
     }
 
     clickPayBillsTab() {
-        this.payBillsTab.waitForExist()
+        this.payBillsTab.waitForExist();
         this.payBillsTab.click()
     }
 
     clickFiltersLink() {
-        this.filtersLink.waitForExist()
+        this.filtersLink.waitForExist();
         this.filtersLink.click()
     }
 
     clickExchangeLink() {
-        this.exchangeLink.waitForExist()
+        this.exchangeLink.waitForExist();
         this.exchangeLink.click()
     }
 }

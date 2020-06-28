@@ -1,6 +1,7 @@
 import Base from '../Base'
 
 class ExchangePage extends Base {
+
     get currencySelect() {
         return $('#pc_currency')
     }
@@ -22,7 +23,7 @@ class ExchangePage extends Base {
     }
 
     setAmount(num) {
-        this.amountInput.waitForExist()
+        this.amountInput.waitForExist();
         this.amountInput.setValue(num)
     }
 

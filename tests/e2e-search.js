@@ -1,14 +1,18 @@
-describe('E2E Tests - Search', () => {
-    it('Should load homepage', () => {
-        browser.url('http://zero.webappsecurity.com/index.html')
-        $('#searchTerm').waitForExist()
-    })
+import App from '../page-objects/App'
+import Navbar from "../page-objects/components/Navbar";
 
-    it('Should submit searchbox', () => {
-        $('#searchTerm').setValue('bank')
-        browser.keys('Enter')
-        const resultsTitle = $('h2')
-        resultsTitle.waitForExist()
+
+describe('E2E Tests - Search', () => {
+
+    it('Should load homepage', () => {
+        App.openHomePage();
+        Navbar.searchBox.waitForExist()
+    });
+
+    it('Should submit search-box', () => {
+        Navbar.search('bank');
+        const resultsTitle = $('h2');
+        resultsTitle.waitForExist();
         expect(resultsTitle).toHaveText('Search Results:')
     })
-})
+});
