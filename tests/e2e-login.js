@@ -6,7 +6,6 @@ describe('E2E Tests - Login / Logout Flow', () => {
 
     it('Should not login with invalid credentials', () => {
         App.openHomePage();
-        Navbar.signinButton;
         Navbar.clickSignin();
         LoginPage.pauseShort();
         LoginPage.login('invalid username', 'invalid password');

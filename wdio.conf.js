@@ -1,3 +1,5 @@
+//import * as config from './lib/config'
+const config = require('./lib/config');
 exports.config = {
     //
     // ====================
@@ -37,7 +39,7 @@ exports.config = {
     // and 30 processes will get spawned. The property handles how many capabilities
     // from the same test should run tests.
     //
-    maxInstances: 10,
+    maxInstances: config.maxInstances,
     //
     // If you have trouble getting all important capabilities together, check out the
     // Sauce Labs platform configurator - a great tool to configure your capabilities:
@@ -50,7 +52,7 @@ exports.config = {
         // 5 instances get started at a time.
         maxInstances: 5,
         //
-        browserName: 'chrome',
+        browserName: config.browser,
         // If outputDir is provided WebdriverIO can capture driver session logs
         // it is possible to configure which logTypes to include/exclude.
         // excludeDriverLogs: ['*'], // pass '*' to exclude all driver session logs
@@ -63,7 +65,7 @@ exports.config = {
     // Define all options that are relevant for the WebdriverIO instance here
     //
     // Level of logging verbosity: trace | debug | info | warn | error | silent
-    logLevel: 'info',
+    logLevel: config.logLevel,
     //
     // Set specific log levels per logger
     // loggers:
@@ -81,16 +83,16 @@ exports.config = {
     //
     // If you only want to run your tests until a specific amount of tests have failed use
     // bail (default is 0 - don't bail, run all tests).
-    bail: 0,
+    bail: config.bail,
     //
     // Set a base URL in order to shorten url command calls. If your `url` parameter starts
     // with `/`, the base url gets prepended, not including the path portion of your baseUrl.
     // If your `url` parameter starts without a scheme or `/` (like `some/path`), the base url
     // gets prepended directly.
-    baseUrl: 'http://localhost',
+    baseUrl: config.baseUrl,
     //
     // Default timeout for all waitFor* commands.
-    waitforTimeout: 10000,
+    waitforTimeout: config.timeout,
     //
     // Default timeout in milliseconds for request
     // if browser driver or grid doesn't send response
@@ -182,6 +184,25 @@ exports.config = {
      */
     // beforeCommand: function (commandName, args) {
     // },
+   /* before: function (capabilities, specs) {
+        require('@babel/register');
+        browser.addCommand('getMetaData', function () {
+            return {
+                url: this.getUrl(),
+                title: this.getTitle(),
+            }
+        });
+
+        browser.addCommand('waitAndClick', function (selector) {
+            try {
+                $(selector).waitForExist();
+                $(selector).click()
+            } catch (error) {
+                throw new Error('Could not click on selector: ' + $(selector));
+            }
+        });
+    }*/
+
     /**
      * Hook that gets executed before the suite starts
      * @param {Object} suite suite details
