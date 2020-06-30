@@ -3,11 +3,12 @@ import LoginPage from '../page-objects/pages/LoginPage'
 import PaymentPage from '../page-objects/pages/PaymentPage'
 import InsideNavbar from '../page-objects/components/InsideNavbar'
 import Navbar from '../page-objects/components/Navbar'
+import * as Config from '../lib/config';
 
 describe('E2E Tests - Pay', () => {
     it('Should log into application', () => {
         App.openLoginPage();
-        LoginPage.login('username', 'password');
+        LoginPage.login(Config.username, Config.password);
         Navbar.insideNavbarIsVisible()
     });
 

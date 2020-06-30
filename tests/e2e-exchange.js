@@ -3,12 +3,13 @@ import LoginPage from '../page-objects/pages/LoginPage'
 import ExchangePage from '../page-objects/pages/ExchangePage'
 import Navbar from '../page-objects/components/Navbar'
 import InsideNavbar from '../page-objects/components/InsideNavbar'
+import * as Config from '../lib/config';
 
 describe('E2E Tests - Currency Exchange', () => {
 
     it('Should log into application', () => {
         App.openLoginPage();
-        LoginPage.login('username', 'password');
+        LoginPage.login(Config.username, Config.password);
         Navbar.insideNavbarIsVisible()
     });
 

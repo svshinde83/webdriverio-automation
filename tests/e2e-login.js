@@ -1,6 +1,7 @@
 import App from "../page-objects/App";
 import LoginPage from "../page-objects/pages/LoginPage";
 import Navbar from "../page-objects/components/Navbar";
+import * as Config from "../lib/config"
 
 describe('E2E Tests - Login / Logout Flow', () => {
 
@@ -8,7 +9,7 @@ describe('E2E Tests - Login / Logout Flow', () => {
         App.openHomePage();
         Navbar.clickSignin();
         LoginPage.pauseShort();
-        LoginPage.login('invalid username', 'invalid password');
+        LoginPage.login(Config.invalidUsername, Config.invalidPassword);
         expect(LoginPage.error).toHaveText('Login and/or password are wrong.')
     });
 
@@ -16,7 +17,7 @@ describe('E2E Tests - Login / Logout Flow', () => {
         App.openHomePage();
         Navbar.signinButton;
         Navbar.clickSignin();
-        LoginPage.login('username', 'password');
+        LoginPage.login(Config.username, Config.password);
         Navbar.insideNavBar;
         Navbar.insideNavbarIsVisible();
     });

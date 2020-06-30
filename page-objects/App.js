@@ -1,18 +1,20 @@
+import * as Config from '../lib/config'
+
 class App {
     openHomePage() {
-        browser.url('http://zero.webappsecurity.com/index.html');
+        browser.url(Config.baseUrl);
     }
 
     openLoginPage() {
-        browser.url('http://zero.webappsecurity.com/login.html');
+        browser.url(Config.loginUrl);
     }
 
-    openFeedbackPage(){
-        browser.url('http://zero.webappsecurity.com/feedback.html');
+    openFeedbackPage() {
+        browser.url(Config.feedbackUrl);
     }
 
     logout() {
-        browser.url('http://zero.webappsecurity.com/logout.html');
+        browser.url(Config.logoutUrl);
     }
 }
 
